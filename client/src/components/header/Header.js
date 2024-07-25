@@ -1,4 +1,5 @@
 import { AppBar, Box, styled, Toolbar, Typography } from "@mui/material";
+import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import Search from './InputSearch';
 import CustomButtons from "./CustomButtons";
 
@@ -50,7 +51,7 @@ const Header = () =>{
              <Box>
              <CustomButtons/>
              </Box>
-            
+             &nbsp; <MoreVertOutlinedIcon style={{color:"#1F74BA"}}/>
         </Toolbar>
        </StyledHeader>
     )
