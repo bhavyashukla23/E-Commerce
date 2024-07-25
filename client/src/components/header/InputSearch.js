@@ -8,6 +8,7 @@ const SearchBox=styled(Box)`
    margin-left:20px ;
    margin-right:20px;
    display:flex;
+   align-items : center;
 `;
 
 const InputBaseStyle= styled(InputBase)`
@@ -16,17 +17,19 @@ const InputBaseStyle= styled(InputBase)`
 
 const SearchIconStyle= styled(Box)`
 color: grey;
-display:flex
+display:flex;
+margin-right : 10px;
 `;
 
 const Search=() =>{
 
     return(
         <SearchBox>
-            <InputBaseStyle placeholder="Search for products,brands and more"/>
+            {/* <InputBaseStyle placeholder="Search for products,brands and more"/> */}
             <SearchIconStyle>
                 <SearchIcon/>
             </SearchIconStyle>
+            <InputBaseStyle placeholder="Search for products,brands and more"/>
         </SearchBox>
     )
 };
