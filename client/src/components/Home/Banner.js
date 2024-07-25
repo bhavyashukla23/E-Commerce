@@ -1,4 +1,5 @@
-import { Carousel } from 'react-responsive-carousel';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import {bannerData} from '../../constants/data';
 import { styled } from '@mui/material';
 
@@ -7,10 +8,25 @@ const Image=styled('img')({
     height: 280,
 });
 
+const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
+
 const Banner=()=>{
 
     return(
-        <Carousel>
+    <Carousel responsive={responsive}>
         {
             bannerData.map(data =>(
                 <Image src={data.url} alt='banner' id={data.id} />
