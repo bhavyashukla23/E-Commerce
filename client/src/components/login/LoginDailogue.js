@@ -7,7 +7,7 @@ import {
   styled,
 } from "@mui/material";
 import { useState } from "react";
-import { authenticateSignup } from "../../services/api";
+import { authenticateSignup } from "../../services/api.js";
 
 const Component = styled(Box)`
   height: 70vh;
@@ -93,6 +93,7 @@ const LoginDialogue = ({ open, setOpen }) => {
 
     const[account , toggleAccount]=useState(accountInitialView.login);
     const[signUp , setSignup] =useState(signupInitialValues);
+    
 
   const handleClose = () => {
     setOpen(false);
@@ -106,6 +107,8 @@ const LoginDialogue = ({ open, setOpen }) => {
   const signupUser=async()=>{
      let response = await authenticateSignup(signUp);
      console.log(response);
+     if(!response){ return;  }
+     handleClose();
   };
 
   const onInputChange=(e)=>{
