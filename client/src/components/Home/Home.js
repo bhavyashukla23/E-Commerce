@@ -1,22 +1,33 @@
-import NavBar from'./NavBar';
-import Banner from './Banner';
-import { Box, styled } from '@mui/material';
+import { useEffect } from "react";
 
-const Component =styled(Box)`
- padding: 10px 10px;
- background:#F2F2F2;
+import NavBar from "./NavBar";
+import Banner from "./Banner";
+
+import { Box, styled } from "@mui/material";
+
+import { getProducts } from "../../redux/actions/productActions";
+import { useDispatch } from "react-redux";
+
+const Component = styled(Box)`
+  padding: 10px 10px;
+  background: #f2f2f2;
 `;
 
- const Home=() =>{
+const Home = () => {
+  const dispatch = useDispatch();
 
-    return(
-        <>
-        <NavBar/>
-        <Component>
-          <Banner/>
-        </Component>
-        </>
-    )
- }
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
 
- export default Home;
+  return (
+    <>
+      <NavBar />
+      <Component>
+        <Banner />
+      </Component>
+    </>
+  );
+};
+
+export default Home;
